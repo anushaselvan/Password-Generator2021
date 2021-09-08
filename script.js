@@ -99,21 +99,13 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ];
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
 
 function generatePassword(){
 var userChoice1 = window.prompt("Enter the number of characters your password should contain:");
-if ((userChoice1 < 8) || (userChoice1 > 168 ))
+if ((userChoice1 < 8) || (userChoice1 > 128 ))
 {
-  return window.alert("Enter a valid number");
+window.alert("Enter a valid number");
+return null;
 }
 var userChoice2 = window.confirm("Click ok to confirm using special characters.");
 var userChoice3 = window.confirm("Click ok to confirm using numeric characters.");
@@ -121,9 +113,10 @@ var userChoice4 = window.confirm("Click ok to confirm using uppercase characters
 var userChoice5 = window.confirm("Click ok to confirm using lowercase characters.");
 
 if (!userChoice2 && !userChoice3 && !userChoice4 && !userChoice5){
-  return window.alert("Must select atleast one character type");
-}
-if (userChoice2 && !userChoice3 && !userChoice4 && !userChoice5) {
+  
+  window.alert("Must select atleast one character type");
+return null;
+}else if (userChoice2 && !userChoice3 && !userChoice4 && !userChoice5) {
 var pwd = "";
   for(i=0; i<userChoice1; i++){
     var index = Math.floor(Math.random() * specialCharacters.length);
@@ -264,7 +257,17 @@ else if (!userChoice2 && userChoice3 && !userChoice4 && !userChoice5) {
                           }   
 
 };        
+// 
+var generateBtn = document.querySelector("#generate");
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
+// Write password to the #password input
+
+function writePassword() {
+
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
