@@ -92,15 +92,15 @@ var userChoice1 = window.prompt("Enter the number of characters your password sh
 // Returns null when the user enters any number other than 8 to 128
   if ((userChoice1 < 8) || (userChoice1 > 128 ))
   {
-    window.alert("Enter a valid number");
+    window.alert("Enter a valid number between 8 and 128");
     return null;
   }
 
 // Prompts user to enter choices to create the secure password
-var userChoice2 = window.confirm("Click ok to confirm using special characters.");
-var userChoice3 = window.confirm("Click ok to confirm using numeric characters.");
-var userChoice4 = window.confirm("Click ok to confirm using uppercase characters.");
-var userChoice5 = window.confirm("Click ok to confirm using lowercase characters.");
+var userChoice2 = window.confirm("Click ok to include special characters");
+var userChoice3 = window.confirm("Click ok to include numeric characters");
+var userChoice4 = window.confirm("Click ok to include uppercase characters");
+var userChoice5 = window.confirm("Click ok to include lowercase characters");
 
 // Prompts alert message if user clicks cancel for all the choices
 if (!userChoice2 && !userChoice3 && !userChoice4 && !userChoice5){
@@ -266,7 +266,7 @@ if (!userChoice2 && !userChoice3 && !userChoice4 && !userChoice5){
 
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button
+// Adding event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
